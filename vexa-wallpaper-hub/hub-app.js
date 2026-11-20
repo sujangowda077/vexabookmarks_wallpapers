@@ -644,21 +644,21 @@
         const indicator = document.getElementById('catalog-sync-indicator');
         if (indicator) {
           indicator.style.color = '#10B981';
-          indicator.textContent = `● Synced from GitHub (${catalog.length} Live)`;
+          indicator.textContent = `● ${catalog.length} Wallpapers Available`;
         }
         const topBadge = document.getElementById('catalog-sync-badge');
         if (topBadge) {
-          topBadge.textContent = `GitHub Live (${catalog.length})`;
+          topBadge.textContent = `${catalog.length} Themes`;
         }
 
         if (manual) {
-          showToast(`✓ Catalog successfully synced from GitHub! ${catalog.length} wallpapers loaded (${catalog.length - prevCount >= 0 ? '+' : ''}${catalog.length - prevCount} new).`);
+          showToast(`✓ Collection updated! ${catalog.length} wallpapers available.`);
         }
       }
     } catch (err) {
       console.warn('[VexaHub] Remote catalog fetch notice (using offline cache):', err.message);
       if (manual) {
-        showToast(`ℹ️ Offline mode: Using cached catalog (${catalog.length} wallpapers ready).`);
+        showToast(`ℹ️ Collection ready (${catalog.length} wallpapers available).`);
       }
     } finally {
       setTimeout(() => {

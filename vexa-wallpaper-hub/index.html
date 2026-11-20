@@ -1232,29 +1232,19 @@
       </div>
       <div class="brand-text">
         <h1>Vexa Wallpaper Hub <span class="badge-count" id="header-count">113 Wallpapers</span></h1>
-        <p>Ultra-HD & Pure Animated Collection &bull; Instant Offline Cache &bull; Remote CDN Synchronized</p>
       </div>
     </div>
 
     <div class="header-actions">
-      <!-- Status Group -->
-      <div class="header-status-group">
-        <span id="catalog-sync-badge" title="Live connection to GitHub CDN wallpapers">
-          GitHub Live (113)
-        </span>
-        <span id="installed-limit-pill" title="Wallpapers saved in your active collection">
-          📦 Shelf: <b id="installed-count-text">0/6</b>
-        </span>
-      </div>
+      <!-- Active Shelf Limit Pill -->
+      <span id="installed-limit-pill" title="Wallpapers saved in your active collection">
+        📦 Shelf: <b id="installed-count-text">0/6</b>
+      </span>
 
       <div class="header-divider"></div>
 
       <!-- Action Buttons Group -->
       <div class="header-btns-group">
-        <button class="btn btn-secondary" id="btn-sync-catalog" type="button" title="Synchronize latest catalog from GitHub CDN">
-          <span><span id="sync-spinner">🔄</span> <span id="sync-status-text">Sync</span></span>
-        </button>
-
         <a href="https://chromewebstore.google.com/detail/vexabookmarks/jomkjfbnnldadhhmhdppjkgojelhgbln/reviews?utm_source=item-share-cb" target="_blank" rel="noopener" class="btn btn-secondary btn-rate" id="btn-rate-hub" title="Rate VexaBookmarks on Chrome Web Store">
           <span>⭐ Rate 5★</span>
         </a>
@@ -1284,7 +1274,7 @@
 
         <div class="stage-controls">
           <div class="control-chip active" id="chip-mock-ui">
-            <span>👁️ Mock Vexa UI</span>
+            <span>👁️ Dashboard Preview</span>
           </div>
           <div class="control-chip" id="chip-fullscreen">
             <span>⛶ Fullscreen</span>
@@ -1371,7 +1361,7 @@
         <span id="gallery-count-badge" style="font-size: 0.74rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(212, 175, 55, 0.15); color: #E5C158; border: 1px solid rgba(212, 175, 55, 0.35); letter-spacing: 0.03em;">Loading Catalog...</span>
       </div>
       <div style="display: flex; align-items: center; gap: 12px; font-size: 0.82rem; color: #94a3b8;">
-        <span id="catalog-sync-indicator" style="display: inline-flex; align-items: center; gap: 5px; color: #38bdf8;">● Dynamic Catalog Active</span>
+        <span id="catalog-sync-indicator" style="display: inline-flex; align-items: center; gap: 5px; color: #E5C158;">● Curated Collection</span>
         <span>&bull;</span>
         <span>Click card to preview &bull; ℹ️ Details &bull; ⚡ Apply &bull; + Shelf</span>
       </div>
