@@ -290,10 +290,10 @@
           <div class="card-footer">
             <span class="card-cat">${wp.category}</span>
             <div class="card-actions-row">
-              <button class="btn-card-act btn-card-apply" type="button" title="Apply to Vexa New Tab right now">⚡ Apply</button>
-              <button class="btn-card-act btn-card-add" type="button" title="Add to Installed Shelf">+ Shelf</button>
-              <button class="btn-card-act btn-card-info" type="button" title="View details, tags and specs">ℹ️</button>
-              <button class="btn-card-act btn-card-bm" type="button" title="Bookmark into your VexaBookmarks dashboard">🔖</button>
+              <button class="btn-card-act btn-card-apply" type="button" title="Apply to Vexa New Tab right now"><span>⚡ Apply</span></button>
+              <button class="btn-card-act btn-card-add" type="button" title="Add to Installed Shelf"><span>+ Shelf</span></button>
+              <button class="btn-card-act btn-card-info" type="button" title="View details, tags and specs"><span>ℹ️</span></button>
+              <button class="btn-card-act btn-card-bm" type="button" title="Bookmark into your VexaBookmarks dashboard"><span>🔖</span></button>
             </div>
           </div>
         </div>
