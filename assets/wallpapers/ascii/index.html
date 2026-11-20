@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VexaBookmarks — ASCII Live Wallpaper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020408;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    #wallpaper-container {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #020408;
+      overflow: hidden;
+    }
+
+    /* Live ASCII Canvas */
+    #ascii-canvas {
+      display: block;
+      margin: auto;
+      transform-origin: center center;
+      color: #e2e8f0;
+      z-index: 1;
+    }
+
+    /* Soft atmospheric vignette for contrast */
+    .vignette-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background: radial-gradient(circle at center, rgba(2, 4, 8, 0) 0%, rgba(2, 4, 8, 0.2) 75%, rgba(2, 4, 8, 0.45) 100%);
+    }
+
+    /* Subtle scanlines effect */
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+      background-size: 100% 4px;
+      opacity: 0.12;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wallpaper-container">
+    <canvas id="ascii-canvas"></canvas>
+    <div class="vignette-overlay"></div>
+    <div class="scanlines"></div>
+  </div>
+
+  <!-- Compliant with Chrome MV3 CSP (no inline script, all self-hosted) -->
+  <script src="mount.js"></script>
+  <script src="ascii-player.js"></script>
+</body>
+
+</html>
