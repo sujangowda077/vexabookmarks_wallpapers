@@ -62,67 +62,136 @@
       z-index: 100;
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
-      background: rgba(6, 8, 13, 0.86);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
-      padding: 14px 32px;
+      background: rgba(6, 8, 13, 0.92);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.65);
+      height: 70px;
+      padding: 0 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 16px;
+      box-sizing: border-box;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex-shrink: 0;
     }
 
     .brand-logo {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       background: linear-gradient(135deg, #D4AF37, #B8860B);
-      border-radius: 12px;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 25px rgba(212, 175, 55, 0.45);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
     }
 
     .brand-text h1 {
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       display: flex;
       align-items: center;
       gap: 8px;
+      margin: 0;
       background: linear-gradient(135deg, #ffffff 40%, #e2e8f0 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+      line-height: 1.2;
     }
 
     .badge-count {
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 3px 10px;
+      padding: 2px 9px;
       background: rgba(212, 175, 55, 0.15);
       border: 1px solid rgba(212, 175, 55, 0.4);
       color: #E5C158;
       border-radius: 999px;
       letter-spacing: 0.04em;
       -webkit-text-fill-color: #E5C158;
+      white-space: nowrap;
     }
 
     .brand-text p {
-      font-size: 0.8rem;
+      font-size: 0.74rem;
       color: var(--text-muted);
+      margin: 0;
+      white-space: nowrap;
+      line-height: 1.2;
     }
 
     .header-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .header-status-group,
+    .header-btns-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.12);
+      margin: 0 4px;
+    }
+
+    #catalog-sync-badge {
+      height: 38px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 0 14px 0 26px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #10B981;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.12);
+      white-space: nowrap;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    #installed-limit-pill {
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      color: #E5C158;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+      user-select: none;
     }
 
     /* ── Uiverse.io Sliding Wipe Buttons ── */
@@ -131,15 +200,18 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      border-radius: 8px;
+      height: 38px;
+      border-radius: 9999px;
       background: #183153;
-      box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.35);
+      box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.3);
       overflow: hidden;
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       text-decoration: none;
       padding: 0;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-sizing: border-box;
     }
 
     .btn:after {
@@ -150,7 +222,7 @@
       position: absolute;
       top: 0;
       right: 0;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       z-index: 1;
     }
 
@@ -164,18 +236,19 @@
       position: relative;
       text-align: center;
       text-decoration: none;
-      width: 100%;
-      padding: 9px 18px;
+      padding: 0 14px;
       color: #fff;
-      font-size: 0.86rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       z-index: 20;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 5px;
+      white-space: nowrap;
+      height: 100%;
     }
 
     .btn:hover span {
@@ -184,8 +257,20 @@
     }
 
     .btn-secondary {
-      background: rgba(24, 49, 83, 0.7);
+      background: rgba(24, 49, 83, 0.75);
       border-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .btn-rate {
+      border-color: rgba(212, 175, 55, 0.45);
+      background: rgba(212, 175, 55, 0.08);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+    }
+    .btn-rate span {
+      color: #E5C158;
+    }
+    .btn-rate:hover span {
+      color: #183153;
     }
 
     .btn-primary {
@@ -198,9 +283,12 @@
       background: #ffd401;
     }
 
+    .btn-sm {
+      height: 32px;
+    }
     .btn-sm span {
-      padding: 6px 14px;
-      font-size: 0.82rem;
+      padding: 0 11px;
+      font-size: 0.76rem;
     }
 
     @keyframes scaleUp {
@@ -220,9 +308,9 @@
     .button {
       position: relative;
       transition: all 0.3s ease-in-out;
-      box-shadow: 0px 8px 24px rgba(0, 107, 179, 0.4), 0px 4px 12px rgba(0, 0, 0, 0.3);
-      padding-block: 0.5rem;
-      padding-inline: 1.25rem;
+      box-shadow: 0px 8px 24px rgba(0, 107, 179, 0.45), 0px 4px 12px rgba(0, 0, 0, 0.3);
+      height: 38px;
+      padding: 0 18px;
       background-color: rgb(0 107 179);
       border-radius: 9999px;
       display: inline-flex;
@@ -230,21 +318,22 @@
       justify-content: center;
       cursor: pointer;
       color: #ffffff;
-      gap: 10px;
+      gap: 7px;
       font-weight: 700;
-      border: 3px solid rgba(255, 255, 255, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.35);
       outline: none;
       overflow: hidden;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
       letter-spacing: 0.02em;
       text-decoration: none;
       white-space: nowrap;
+      box-sizing: border-box;
     }
 
     .btn-apply-shine .icon,
     .button .icon {
-      width: 22px;
-      height: 22px;
+      width: 17px;
+      height: 17px;
       transition: all 0.3s ease-in-out;
       flex-shrink: 0;
       color: #ffffff;
@@ -1138,46 +1227,49 @@
       <div class="brand-logo">
         <img src="../icons/logo.svg" 
              data-fallbacks="../icons/logo.webp|../icons/icon128.png"
-             alt="Vexa" width="24" height="24" fetchpriority="high" decoding="async" 
-             style="width: 24px; height: 24px; display: block; object-fit: contain;">
+             alt="Vexa" width="22" height="22" fetchpriority="high" decoding="async" 
+             style="width: 22px; height: 22px; display: block; object-fit: contain;">
       </div>
       <div class="brand-text">
-        <h1>Vexa Wallpaper Hub <span class="badge-count" id="header-count">Dynamic Catalog</span></h1>
+        <h1>Vexa Wallpaper Hub <span class="badge-count" id="header-count">113 Wallpapers</span></h1>
         <p>Ultra-HD & Pure Animated Collection &bull; Instant Offline Cache &bull; Remote CDN Synchronized</p>
       </div>
     </div>
 
     <div class="header-actions">
-      <!-- Remote Sync Status Button -->
-      <button class="btn btn-secondary" id="btn-sync-catalog" type="button" title="Synchronize remote catalog from GitHub / CDN">
-        <span id="sync-spinner" style="display:inline-block; transition:transform 0.5s;">🔄</span>
-        <span id="sync-status-text">Sync Catalog</span>
-      </button>
-      <span id="catalog-sync-badge">
-        GitHub Live Connected
-      </span>
+      <!-- Status Group -->
+      <div class="header-status-group">
+        <span id="catalog-sync-badge" title="Live connection to GitHub CDN wallpapers">
+          GitHub Live (113)
+        </span>
+        <span id="installed-limit-pill" title="Wallpapers saved in your active collection">
+          📦 Shelf: <b id="installed-count-text">0/6</b>
+        </span>
+      </div>
 
-      <!-- Rate & Star Promotion -->
-      <a href="https://chromewebstore.google.com/detail/vexabookmarks/jomkjfbnnldadhhmhdppjkgojelhgbln/reviews?utm_source=item-share-cb" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-rate-hub" title="Rate VexaBookmarks on Chrome Web Store" style="border-color: rgba(212, 175, 55, 0.45); color: #E5C158; background: rgba(212, 175, 55, 0.08);">
-        <span>⭐</span>
-        <span>Rate 5★ on Web Store</span>
-      </a>
+      <div class="header-divider"></div>
 
-      <!-- Installed Shelf Limit Pill -->
-      <span id="installed-limit-pill" style="font-size: 0.8rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.35); color: #E5C158; display: inline-flex; align-items: center; gap: 6px;">
-        📦 Installed: <b id="installed-count-text">0/6</b>
-      </span>
+      <!-- Action Buttons Group -->
+      <div class="header-btns-group">
+        <button class="btn btn-secondary" id="btn-sync-catalog" type="button" title="Synchronize latest catalog from GitHub CDN">
+          <span><span id="sync-spinner">🔄</span> <span id="sync-status-text">Sync</span></span>
+        </button>
 
-      <a href="../newtab.html" class="btn btn-secondary">
-        <span>← Back to VexaBookmarks</span>
-      </a>
+        <a href="https://chromewebstore.google.com/detail/vexabookmarks/jomkjfbnnldadhhmhdppjkgojelhgbln/reviews?utm_source=item-share-cb" target="_blank" rel="noopener" class="btn btn-secondary btn-rate" id="btn-rate-hub" title="Rate VexaBookmarks on Chrome Web Store">
+          <span>⭐ Rate 5★</span>
+        </a>
 
-      <button class="btn-apply-shine" id="btn-apply-active" type="button" title="Apply active wallpaper to New Tab">
-        Apply Now
-        <svg fill="currentColor" viewBox="0 0 24 24" class="icon" aria-hidden="true">
-          <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
-        </svg>
-      </button>
+        <a href="../newtab.html" class="btn btn-secondary" title="Return to VexaBookmarks new tab">
+          <span>← Back to Dashboard</span>
+        </a>
+
+        <button class="btn-apply-shine" id="btn-apply-active" type="button" title="Apply active wallpaper to New Tab">
+          Apply Now
+          <svg fill="currentColor" viewBox="0 0 24 24" class="icon" aria-hidden="true">
+            <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 

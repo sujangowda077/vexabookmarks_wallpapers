@@ -648,7 +648,7 @@
         }
         const topBadge = document.getElementById('catalog-sync-badge');
         if (topBadge) {
-          topBadge.textContent = `Synced from GitHub (${catalog.length} Live)`;
+          topBadge.textContent = `GitHub Live (${catalog.length})`;
         }
 
         if (manual) {
