@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vexa Wallpaper Hub — Dynamic Live & Ultra-HD Collection</title>
+  <!-- High-Performance Favicon (Priority: SVG > WebP > AVIF > PNG) -->
+  <link rel="icon" type="image/svg+xml" href="../icons/logo.svg">
+  <link rel="icon" type="image/webp" href="../icons/logo.webp">
+  <link rel="icon" type="image/png" href="../icons/icon128.png">
+  <script src="../js/image-lifecycle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #06080d;
+      --surface: rgba(14, 18, 30, 0.78);
+      --surface-card: rgba(11, 15, 25, 0.88);
+      --surface-border: rgba(255, 255, 255, 0.08);
+      --surface-border-hover: rgba(212, 175, 55, 0.5);
+      --accent: #D4AF37; /* 24K Champagne Gold */
+      --accent-gold: #D4AF37;
+      --accent-gold-light: #F3E5AB;
+      --accent-gold-hover: #E5C158;
+      --accent-amber: #F59E0B;
+      --accent-cyan: #38BDF8; /* Precision Platinum Sky */
+      --accent-emerald: #10B981; /* Pure Emerald */
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: 
+        radial-gradient(circle at 10% 0%, rgba(212, 175, 55, 0.07) 0%, transparent 45%),
+        radial-gradient(circle at 90% 35%, rgba(56, 189, 248, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
+        #06080d;
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      background: rgba(6, 8, 13, 0.86);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+      padding: 14px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #D4AF37, #B8860B);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .brand-text h1 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #ffffff 40%, #e2e8f0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge-count {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #E5C158;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      -webkit-text-fill-color: #E5C158;
+    }
+
+    .brand-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(212, 175, 55, 0.4);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #E5C158, #B8860B);
+      color: #07090e;
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #F3E5AB, #D4AF37);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+      transform: translateY(-2px);
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1;
+      padding: 24px 32px 60px;
+      max-width: 1680px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ── LIVE STAGE PLAYER ── */
+    .stage-card {
+      position: relative;
+      background: #020408;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.85), 0 0 50px rgba(212, 175, 55, 0.12);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+
+    .stage-header {
+      padding: 18px 26px;
+      background: linear-gradient(180deg, rgba(16, 21, 35, 0.95) 0%, rgba(10, 14, 25, 0.9) 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .stage-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stage-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .stage-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(212, 175, 55, 0.18);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      color: #E5C158;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .stage-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .control-chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      user-select: none;
+    }
+
+    .control-chip:hover, .control-chip.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.1));
+      border-color: rgba(212, 175, 55, 0.6);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.25);
+    }
+
+    .stage-view {
+      position: relative;
+      min-height: 500px;
+      max-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #020306;
+      overflow: hidden;
+    }
+
+    .stage-iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Mock Vexa UI Overlay */
+    .vexa-mock-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px 36px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      background: radial-gradient(circle at center, transparent 30%, rgba(2, 4, 8, 0.5) 100%);
+      z-index: 10;
+    }
+
+    .vexa-mock-overlay.active {
+      opacity: 1;
+    }
+
+    .mock-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mock-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    }
+
+    .mock-pill {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      color: #e2e8f0;
+    }
+
+    .mock-center-hub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin: auto 0;
+    }
+
+    .mock-clock {
+      font-size: 3.8rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 30px rgba(0,0,0,0.9), 0 0 10px rgba(212, 175, 55, 0.3);
+      letter-spacing: -0.03em;
+    }
+
+    .mock-search {
+      width: 460px;
+      max-width: 90%;
+      height: 48px;
+      background: rgba(18, 22, 34, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      gap: 12px;
+      color: #94a3b8;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .mock-dock {
+      align-self: center;
+      display: flex;
+      gap: 12px;
+      background: rgba(18, 22, 34, 0.65);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+    }
+
+    .mock-dock-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+    }
+
+    /* ── FILTER & SEARCH BAR ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .categories {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: none;
+    }
+    .categories::-webkit-scrollbar { display: none; }
+
+    .cat-btn {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--surface-border);
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .cat-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+    }
+
+    .cat-btn.active {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(56, 189, 248, 0.15));
+      border-color: rgba(212, 175, 55, 0.6);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.25);
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 320px;
+    }
+
+    .search-box input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 11px 18px 11px 42px;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-box input:focus {
+      border-color: #D4AF37;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.35), inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    /* ── WALLPAPER GRID ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-card {
+      background: rgba(13, 17, 28, 0.78);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+    }
+
+    .gallery-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-8px) scale(1.01);
+      border-color: rgba(212, 175, 55, 0.55);
+      box-shadow: 0 22px 45px rgba(0, 0, 0, 0.75), 0 0 30px rgba(212, 175, 55, 0.22);
+    }
+
+    .gallery-card:hover::after {
+      opacity: 1;
+    }
+
+    .gallery-card.selected {
+      border-color: #D4AF37;
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.6), 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .card-thumb {
+      height: 195px;
+      background: #020306;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+    }
+
+    .gallery-card:hover .card-thumb {
+      transform: scale(1.05);
+    }
+
+    .card-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 4px 10px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: rgba(6, 8, 14, 0.78);
+      border: 1px solid rgba(212, 175, 55, 0.45);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #E5C158;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-res-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 4px 10px;
+      font-size: 0.65rem;
+      font-weight: 600;
+      background: rgba(6, 8, 14, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+      background: rgba(14, 18, 30, 0.95);
+    }
+
+    .card-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .card-icon {
+      font-size: 1.25rem;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      margin-top: 6px;
+    }
+
+    .card-cat {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .card-actions-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-card-act {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #cbd5e1;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+    }
+
+    .btn-card-act:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-card-apply {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(229, 193, 88, 0.15));
+      border-color: rgba(212, 175, 55, 0.55);
+      color: #ffffff;
+      font-weight: 700;
+    }
+    .btn-card-apply:hover {
+      background: linear-gradient(135deg, #E5C158, #B8860B);
+      color: #07090e;
+      font-weight: 700;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.6);
+      border-color: #E5C158;
+    }
+
+    .btn-card-add {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+    }
+    .btn-card-add:hover {
+      background: #0284c7;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-card-bm {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+    .btn-card-bm:hover {
+      background: rgba(16, 185, 129, 0.4);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-card-info {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+    }
+    .btn-card-info:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .btn-card-add:hover {
+      background: #0284c7;
+      color: #fff;
+    }
+
+    .btn-card-bm {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+    .btn-card-bm:hover {
+      background: rgba(16, 185, 129, 0.35);
+      color: #fff;
+    }
+
+    .btn-card-info {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+    }
+    .btn-card-info:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    /* ── MODALS (DETAILS & CATALOG SOURCE) ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 6, 10, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #0d111a;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-lg);
+      max-width: 680px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.15);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transform: scale(0.96);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.open .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--surface-border);
+      color: #cbd5e1;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .detail-hero-thumb {
+      width: 100%;
+      height: 220px;
+      border-radius: var(--radius-md);
+      background: #020408;
+      border: 1px solid var(--surface-border);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      position: relative;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .detail-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .detail-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+
+    .detail-value {
+      font-size: 0.92rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .detail-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .detail-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: 999px;
+      color: #cbd5e1;
+    }
+
+    .modal-footer {
+      padding: 18px 24px;
+      border-top: 1px solid var(--surface-border);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      background: rgba(9, 12, 19, 0.6);
+    }
+
+    /* ── TOAST NOTIFICATION ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(18, 22, 34, 0.95);
+      border: 1px solid #10b981;
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(16, 185, 129, 0.3);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 600;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    #catalog-sync-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 16px 6px 26px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #10B981;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+    }
+
+    #catalog-sync-badge::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: radar-pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes radar-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.4); }
+    }
+
+    /* Fullscreen stage */
+    .stage-card.fullscreen {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      border-radius: 0;
+      border: none;
+    }
+
+    .stage-card.fullscreen .stage-view {
+      min-height: calc(100vh - 65px);
+      max-height: calc(100vh - 65px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">
+        <img src="../icons/logo.svg" 
+             data-fallbacks="../icons/logo.webp|../icons/icon128.png"
+             alt="Vexa" width="24" height="24" fetchpriority="high" decoding="async" 
+             style="width: 24px; height: 24px; display: block; object-fit: contain;">
+      </div>
+      <div class="brand-text">
+        <h1>Vexa Wallpaper Hub <span class="badge-count" id="header-count">Dynamic Catalog</span></h1>
+        <p>Ultra-HD & Pure Animated Collection &bull; Instant Offline Cache &bull; Remote CDN Synchronized</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <!-- Remote Sync Status Button -->
+      <button class="btn btn-secondary" id="btn-sync-catalog" type="button" title="Synchronize remote catalog from GitHub / CDN">
+        <span id="sync-spinner" style="display:inline-block; transition:transform 0.5s;">🔄</span>
+        <span id="sync-status-text">Sync Catalog</span>
+      </button>
+      <span id="catalog-sync-badge">
+        GitHub Live Connected
+      </span>
+
+      <!-- Rate & Star Promotion -->
+      <a href="https://chromewebstore.google.com/detail/vexabookmarks/jomkjfbnnldadhhmhdppjkgojelhgbln/reviews?utm_source=item-share-cb" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-rate-hub" title="Rate VexaBookmarks on Chrome Web Store" style="border-color: rgba(212, 175, 55, 0.45); color: #E5C158; background: rgba(212, 175, 55, 0.08);">
+        <span>⭐</span>
+        <span>Rate 5★ on Web Store</span>
+      </a>
+
+      <!-- Installed Shelf Limit Pill -->
+      <span id="installed-limit-pill" style="font-size: 0.8rem; font-weight: 700; padding: 6px 14px; border-radius: 999px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.35); color: #E5C158; display: inline-flex; align-items: center; gap: 6px;">
+        📦 Installed: <b id="installed-count-text">0/6</b>
+      </span>
+
+      <a href="../newtab.html" class="btn btn-secondary">
+        <span>← Back to VexaBookmarks</span>
+      </a>
+
+      <button class="btn btn-primary" id="btn-apply-active" type="button">
+        <span>⚡ Apply to New Tab</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Featured Live Stage Player -->
+    <section class="stage-card" id="stage-card">
+      <div class="stage-header">
+        <div class="stage-info">
+          <h2 class="stage-name" id="stage-title">The Eye Within Words</h2>
+          <span class="stage-badge" id="stage-badge">SIGNATURE LIVE</span>
+        </div>
+
+        <div class="stage-controls">
+          <div class="control-chip active" id="chip-mock-ui">
+            <span>👁️ Mock Vexa UI</span>
+          </div>
+          <div class="control-chip" id="chip-fullscreen">
+            <span>⛶ Fullscreen</span>
+          </div>
+          <button class="btn btn-secondary" id="btn-stage-details" type="button" style="padding: 6px 14px; font-size: 0.82rem;">
+            <span>ℹ️ Details</span>
+          </button>
+          <button class="btn btn-primary" id="btn-stage-apply" type="button" style="padding: 6px 14px; font-size: 0.82rem;">
+            <span>⚡ Apply Now</span>
+          </button>
+          <button class="btn btn-secondary" id="btn-stage-install" type="button" style="padding: 6px 14px; font-size: 0.82rem;">
+            <span>+ Add to Shelf</span>
+          </button>
+          <button class="btn btn-secondary" id="btn-stage-bookmark" type="button" style="padding: 6px 14px; font-size: 0.82rem; color: #6ee7b7; border-color: rgba(16, 185, 129, 0.4);">
+            <span>🔖 Bookmark</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="stage-view">
+        <iframe id="stage-iframe" class="stage-iframe" src="../assets/wallpapers/eye/index.html"></iframe>
+
+        <!-- Mock Vexa Dashboard UI Overlay -->
+        <div class="vexa-mock-overlay active" id="mock-overlay">
+          <div class="mock-top-bar">
+            <div class="mock-brand">
+              <span style="color:#D4AF37;">◈</span> VexaBookmarks
+            </div>
+            <div class="mock-pill">Live Preview Mode</div>
+          </div>
+
+          <div class="mock-center-hub">
+            <div class="mock-clock" id="mock-clock">12:00</div>
+            <div class="mock-search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <span>Search bookmarks, tabs, or web...</span>
+            </div>
+          </div>
+
+          <div class="mock-dock">
+            <div class="mock-dock-icon">⚡</div>
+            <div class="mock-dock-icon">★</div>
+            <div class="mock-dock-icon">📂</div>
+            <div class="mock-dock-icon">⚙️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter & Search Bar -->
+    <section class="filter-bar">
+      <div class="categories" id="category-pills">
+        <button class="cat-btn active" data-cat="all">🌟 All (<span id="cat-count-all">0</span>)</button>
+        <button class="cat-btn" data-cat="signature">💎 Signature Live (<span id="cat-count-signature">3</span>)</button>
+        <button class="cat-btn" data-cat="automotive">🏎️ Automotive (<span id="cat-count-automotive">8</span>)</button>
+        <button class="cat-btn" data-cat="anime">⚔️ Anime & Manga (<span id="cat-count-anime">13</span>)</button>
+        <button class="cat-btn" data-cat="cinema">🎬 Cinema & Gaming (<span id="cat-count-cinema">11</span>)</button>
+        <button class="cat-btn" data-cat="creatures">🐾 Creatures (<span id="cat-count-creatures">6</span>)</button>
+        <button class="cat-btn" data-cat="scenes">🌄 Scenes (<span id="cat-count-scenes">39</span>)</button>
+        <button class="cat-btn" data-cat="space">🪐 Space (<span id="cat-count-space">10</span>)</button>
+        <button class="cat-btn" data-cat="shapes">🌀 3D Shapes (<span id="cat-count-shapes">2</span>)</button>
+        <button class="cat-btn" data-cat="effects">🕹️ Retro & Demoscene (<span id="cat-count-effects">8</span>)</button>
+        <button class="cat-btn" data-cat="nature">🌿 Nature (<span id="cat-count-nature">15</span>)</button>
+        <button class="cat-btn" data-cat="objects">☕ Objects (<span id="cat-count-objects">2</span>)</button>
+        <button class="cat-btn" data-cat="type">🔤 Typography (<span id="cat-count-type">6</span>)</button>
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-input" placeholder="Search wallpapers by title, tags, category, or resolution...">
+      </div>
+    </section>
+
+    <!-- Master Gallery Grid Header & Count -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; margin-bottom: -10px; padding: 0 4px; flex-wrap: wrap; gap: 10px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff; letter-spacing: -0.01em;">All Wallpapers</h3>
+        <span id="gallery-count-badge" style="font-size: 0.74rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: rgba(212, 175, 55, 0.15); color: #E5C158; border: 1px solid rgba(212, 175, 55, 0.35); letter-spacing: 0.03em;">Loading Catalog...</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 0.82rem; color: #94a3b8;">
+        <span id="catalog-sync-indicator" style="display: inline-flex; align-items: center; gap: 5px; color: #38bdf8;">● Dynamic Catalog Active</span>
+        <span>&bull;</span>
+        <span>Click card to preview &bull; ℹ️ Details &bull; ⚡ Apply &bull; + Shelf</span>
+      </div>
+    </div>
+
+    <!-- Master Gallery Grid -->
+    <section class="gallery-grid" id="gallery-grid"></section>
+  </main>
+
+  <!-- WALLPAPER DETAILS MODAL -->
+  <div class="modal-overlay" id="wallpaper-details-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">Wallpaper Details</h3>
+        <button class="modal-close-btn" id="modal-close-btn" type="button" title="Close Details">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="detail-hero-thumb" id="modal-thumb">
+          <span id="modal-thumb-icon">🖼️</span>
+        </div>
+        <p id="modal-desc" style="font-size: 0.92rem; color: #cbd5e1; line-height: 1.6;"></p>
+        
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="detail-label">Resolution / Quality</span>
+            <span class="detail-value" id="modal-res">5120 × 2880 (5K UHD)</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Category</span>
+            <span class="detail-value" id="modal-cat">Automotive</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Format / Engine</span>
+            <span class="detail-value" id="modal-type">Ultra-HD Image</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Curator / Author</span>
+            <span class="detail-value" id="modal-author">Vexa Curated</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="detail-label">Tags & Search Keywords</span>
+          <div class="detail-tags-row" id="modal-tags"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="modal-btn-bookmark" type="button">🔖 Bookmark</button>
+        <button class="btn btn-secondary" id="modal-btn-install" type="button">+ Add to Shelf</button>
+        <button class="btn btn-primary" id="modal-btn-apply" type="button">⚡ Apply to New Tab</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span>✓</span>
+    <span id="toast-message">Wallpaper added to VexaBookmarks!</span>
+  </div>
+
+  <!-- Master Catalog Data & Hub App Engine (Chrome MV3 CSP Compliant) -->
+  <script src="wallpapers-data.js"></script>
+  <script src="hub-app.js"></script>
+</body>
+</html>
