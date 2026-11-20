@@ -215,6 +215,100 @@
       }
     }
 
+    /* ── Uiverse.io adeladel522: Apply Now Shine Button ── */
+    .btn-apply-shine,
+    .button {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 8px 24px rgba(0, 107, 179, 0.4), 0px 4px 12px rgba(0, 0, 0, 0.3);
+      padding-block: 0.5rem;
+      padding-inline: 1.25rem;
+      background-color: rgb(0 107 179);
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #ffffff;
+      gap: 10px;
+      font-weight: 700;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      outline: none;
+      overflow: hidden;
+      font-size: 0.92rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-apply-shine .icon,
+    .button .icon {
+      width: 22px;
+      height: 22px;
+      transition: all 0.3s ease-in-out;
+      flex-shrink: 0;
+      color: #ffffff;
+    }
+
+    .btn-apply-shine:hover,
+    .button:hover {
+      transform: scale(1.05);
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0px 12px 28px rgba(0, 107, 179, 0.6), 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-apply-shine:hover .icon,
+    .button:hover .icon {
+      transform: translate(4px);
+    }
+
+    .btn-apply-shine:hover::before,
+    .button:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+
+    .btn-apply-shine::before,
+    .button::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100%;
+      background-image: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0) 70%
+      );
+      top: 0;
+      left: -100px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .btn-apply-shine.btn-sm {
+      padding-block: 0.38rem;
+      padding-inline: 1rem;
+      font-size: 0.82rem;
+      gap: 6px;
+      border-width: 2px;
+    }
+    .btn-apply-shine.btn-sm .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100px;
+      }
+      60% {
+        left: 100%;
+      }
+      to {
+        left: 100%;
+      }
+    }
+
     /* ── MAIN CONTENT ── */
     main {
       flex: 1;
@@ -721,11 +815,65 @@
 
     /* Distinct accents for card action types */
     .btn-card-apply {
-      border-color: rgba(255, 212, 1, 0.45);
-      box-shadow: 0 0 10px rgba(255, 212, 1, 0.15);
+      position: relative;
+      background-color: rgb(0 107 179) !important;
+      border: 2px solid rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 0 12px rgba(0, 107, 179, 0.4);
+      border-radius: 9999px !important;
+      overflow: hidden;
+      transition: all 0.25s ease-in-out;
+      gap: 4px;
+      padding-inline: 4px;
     }
     .btn-card-apply span {
-      color: #ffd401;
+      color: #ffffff !important;
+      font-weight: 700;
+      padding: 5px 6px;
+      gap: 3px;
+    }
+    .btn-card-apply .icon {
+      width: 14px;
+      height: 14px;
+      transition: all 0.25s ease-in-out;
+      flex-shrink: 0;
+      color: #ffffff;
+      display: inline-block;
+      vertical-align: middle;
+      z-index: 20;
+    }
+    .btn-card-apply:hover {
+      transform: scale(1.06);
+      border-color: rgba(255, 255, 255, 0.7) !important;
+      box-shadow: 0 0 18px rgba(0, 107, 179, 0.65), 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+    .btn-card-apply:hover .icon {
+      transform: translate(3px);
+    }
+    .btn-card-apply:hover::before {
+      animation: shine 1.5s ease-out infinite;
+    }
+    .btn-card-apply::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 100%;
+      background-image: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0) 70%
+      );
+      top: 0;
+      left: -60px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .btn-card-apply:after {
+      display: none !important;
+    }
+    .btn-card-apply:hover span {
+      color: #ffffff !important;
+      animation: none !important;
     }
 
     .btn-card-add {
@@ -1024,8 +1172,11 @@
         <span>← Back to VexaBookmarks</span>
       </a>
 
-      <button class="btn btn-primary" id="btn-apply-active" type="button">
-        <span>⚡ Apply to New Tab</span>
+      <button class="btn-apply-shine" id="btn-apply-active" type="button" title="Apply active wallpaper to New Tab">
+        Apply Now
+        <svg fill="currentColor" viewBox="0 0 24 24" class="icon" aria-hidden="true">
+          <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+        </svg>
       </button>
     </div>
   </header>
@@ -1049,8 +1200,11 @@
           <button class="btn btn-secondary btn-sm" id="btn-stage-details" type="button">
             <span>ℹ️ Details</span>
           </button>
-          <button class="btn btn-primary btn-sm" id="btn-stage-apply" type="button">
-            <span>⚡ Apply Now</span>
+          <button class="btn-apply-shine btn-sm" id="btn-stage-apply" type="button" title="Apply this wallpaper to your Vexa New Tab">
+            Apply Now
+            <svg fill="currentColor" viewBox="0 0 24 24" class="icon" aria-hidden="true">
+              <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+            </svg>
           </button>
           <button class="btn btn-secondary btn-sm" id="btn-stage-install" type="button">
             <span>+ Add to Shelf</span>
@@ -1175,7 +1329,12 @@
       <div class="modal-footer">
         <button class="btn btn-secondary" id="modal-btn-bookmark" type="button"><span>🔖 Bookmark</span></button>
         <button class="btn btn-secondary" id="modal-btn-install" type="button"><span>+ Add to Shelf</span></button>
-        <button class="btn btn-primary" id="modal-btn-apply" type="button"><span>⚡ Apply to New Tab</span></button>
+        <button class="btn-apply-shine" id="modal-btn-apply" type="button" title="Apply to Vexa New Tab">
+          Apply Now
+          <svg fill="currentColor" viewBox="0 0 24 24" class="icon" aria-hidden="true">
+            <path clip-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z" fill-rule="evenodd"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
